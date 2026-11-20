@@ -1,0 +1,9 @@
+[
+  { "id": "small-demon", "name": "小悪魔", "hp": 30, "attack": 50, "assetKey": "enemy_small_demon" },
+  { "id": "height-nightmare", "name": "高所の悪夢", "hp": 200, "attack": 80, "assetKey": "enemy_nightmare" },
+  { "id": "closed-nightmare", "name": "閉所の悪夢", "hp": 150, "attack": 150, "assetKey": "enemy_nightmare" },
+  { "id": "fear-avatar", "name": "恐怖の化身・初級", "hp": 500, "attack": 100, "assetKey": "enemy_fear" },
+  { "id": "anxiety-demon", "name": "不安の悪魔", "hp": 100, "attack": 100, "assetKey": "enemy_anxiety" },
+  { "id": "insomnia-aide", "name": "インソムニアの右腕", "hp": 80, "attack": 350, "assetKey": "enemy_insomnia" },
+  { "id": "insomnia-boss", "name": "不安の悪魔インソムニア", "hp": 750, "attack": 250, "assetKey": "enemy_insomnia" }
+]

@@ -1,0 +1,6 @@
+[
+  { "id": "lumi", "name": "ルミ", "role": "knightGuard", "hpBase": 250, "attack": 70, "rarity": "SSR", "skillName": "守護の盾", "skillCooldown": 3, "ultimateName": "夜明けの守護", "ultimatePower": 1.3, "assetKey": "character_lumi" },
+  { "id": "rem", "name": "レム", "role": "remAttacker", "hpBase": 180, "attack": 120, "rarity": "SSR", "skillName": "夢刃", "skillCooldown": 2, "ultimateName": "レムスタイム", "ultimatePower": 2.2, "assetKey": "character_rem" },
+  { "id": "sol", "name": "ソル", "role": "dreamHealer", "hpBase": 210, "attack": 90, "rarity": "SR", "skillName": "夢癒し", "skillCooldown": 3, "ultimateName": "ドリームヒール", "ultimatePower": 1.8, "assetKey": "character_sol" },
+  { "id": "nap", "name": "ナップ", "role": "napSupport", "hpBase": 190, "attack": 85, "rarity": "R", "skillName": "覚醒波", "skillCooldown": 2, "ultimateName": "ナップサポート", "ultimatePower": 1.5, "assetKey": "character_nap" }
+]

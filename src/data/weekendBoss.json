@@ -1,0 +1,9 @@
+{
+  "id": "weekend-insomnia",
+  "name": "インソミニア",
+  "hp": 3000,
+  "attack": 300,
+  "appearMessage": "週末ボスが出現しています",
+  "requiredSleepRank": null,
+  "expReward": 30
+}

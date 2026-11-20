@@ -1,0 +1,26 @@
+[
+  {
+    "id": "chapter-1",
+    "title": "第1章 目覚めの時",
+    "stages": [
+      { "id": "1-1", "name": "チュートリアル", "type": "conversation", "stamina": 0, "unlockPrevious": null, "conversation": [{ "speaker": "ナビ", "text": "眠りの世界へようこそ。まずは睡眠習慣を記録しましょう。", "assetKey": "character_navi" }] },
+      { "id": "1-2", "name": "目覚めの悪夢", "type": "battle", "stamina": 10, "unlockPrevious": "1-1", "enemies": [{ "enemyId": "small-demon", "count": 4 }] },
+      { "id": "1-3", "name": "高所の悪夢", "type": "battle", "stamina": 10, "unlockPrevious": "1-2", "enemies": [{ "enemyId": "height-nightmare", "count": 1 }] },
+      { "id": "1-4", "name": "閉所の悪夢", "type": "battle", "stamina": 10, "unlockPrevious": "1-3", "enemies": [{ "enemyId": "closed-nightmare", "count": 1 }] },
+      { "id": "1-5", "name": "ミニボス 人混みの悪夢", "type": "miniBoss", "stamina": 20, "unlockPrevious": "1-4", "enemies": [{ "enemyId": "height-nightmare", "count": 1 }, { "enemyId": "closed-nightmare", "count": 1 }] },
+      { "id": "1-6", "name": "ボス 恐怖の化身・初級", "type": "boss", "stamina": 20, "unlockPrevious": "1-5", "enemies": [{ "enemyId": "fear-avatar", "count": 1 }] }
+    ]
+  },
+  {
+    "id": "chapter-2",
+    "title": "第2章 最初の悪魔",
+    "stages": [
+      { "id": "2-1", "name": "不安の足音", "type": "conversation", "stamina": 0, "unlockPrevious": "1-6", "conversation": [{ "speaker": "ナビ", "text": "第2章へ進みます。チームを整えて挑戦しましょう。", "assetKey": "character_navi" }] },
+      { "id": "2-2", "name": "不安の悪魔", "type": "battle", "stamina": 10, "unlockPrevious": "2-1", "enemies": [{ "enemyId": "anxiety-demon", "count": 2 }] },
+      { "id": "2-3", "name": "重なる不安", "type": "battle", "stamina": 10, "unlockPrevious": "2-2", "enemies": [{ "enemyId": "anxiety-demon", "count": 3 }] },
+      { "id": "2-4", "name": "広がる不安", "type": "battle", "stamina": 10, "unlockPrevious": "2-3", "enemies": [{ "enemyId": "anxiety-demon", "count": 4 }] },
+      { "id": "2-5", "name": "ミニボス インソムニアの右腕", "type": "miniBoss", "stamina": 20, "unlockPrevious": "2-4", "enemies": [{ "enemyId": "insomnia-aide", "count": 2 }] },
+      { "id": "2-6", "name": "ボス 不安の悪魔インソムニア", "type": "boss", "stamina": 20, "unlockPrevious": "2-5", "enemies": [{ "enemyId": "insomnia-boss", "count": 1 }] }
+    ]
+  }
+]

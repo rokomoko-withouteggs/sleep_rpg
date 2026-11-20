@@ -1,0 +1,13 @@
+{
+  "character_lumi": "/assets/placeholders/character_lumi.svg",
+  "character_rem": "/assets/placeholders/character_rem.svg",
+  "character_sol": "/assets/placeholders/character_sol.svg",
+  "character_nap": "/assets/placeholders/character_nap.svg",
+  "character_navi": "/assets/placeholders/character_navi.svg",
+  "enemy_small_demon": "/assets/placeholders/enemy_small_demon.svg",
+  "enemy_nightmare": "/assets/placeholders/enemy_nightmare.svg",
+  "enemy_fear": "/assets/placeholders/enemy_fear.svg",
+  "enemy_anxiety": "/assets/placeholders/enemy_anxiety.svg",
+  "enemy_insomnia": "/assets/placeholders/enemy_insomnia.svg",
+  "bg_home": "/assets/placeholders/bg_home.svg"
+}
