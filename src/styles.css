@@ -1,0 +1,24 @@
+:root { font-family: Inter, system-ui, sans-serif; color: #edf1ff; background: #151b3d; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input { font: inherit; }
+button { border: 0; border-radius: 10px; padding: 10px 14px; color: #fff; background: #5d67b7; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+button.active, button:hover:not(:disabled) { background: #7c86d8; }
+.app-shell { min-height: 100vh; padding-bottom: 84px; background: linear-gradient(160deg, #20264d, #13172f); }
+.topbar { position: sticky; top: 0; z-index: 20; height: 58px; display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; background: rgba(16,20,48,.94); }
+.status-bar { display: flex; gap: 8px; }
+.status-bar span { padding: 8px 10px; border: 1px solid #59618d; border-radius: 999px; background: #242b56; }
+.quick-nav { position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; height: 68px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 8px; background: rgba(16,20,48,.97); }
+.main-content { max-width: 1200px; margin: auto; padding: 18px; }
+.panel, .hero-card, .tutorial-card { border: 1px solid #59618d; border-radius: 16px; background: rgba(35,42,83,.92); padding: 18px; }
+.two-column, .formation-layout, .gacha-layout, .weekend-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.home-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }.hero-card { min-height: 180px; background: linear-gradient(120deg,#383b88,#5c4f87); }
+label { display: flex; flex-direction: column; gap: 6px; margin: 12px 0; }.inline { display: inline-flex; margin-right: 12px; }fieldset { border: 0; }input { border: 1px solid #6972a3; border-radius: 8px; padding: 8px; background: #171c3b; color: #fff; }
+table { width: 100%; border-collapse: collapse; }th, td { border-bottom: 1px solid #59618d; padding: 8px; text-align: left; }.score-card { display:flex; align-items:center; gap:12px; font-size:24px; margin:12px 0; }
+.story-layout { display:grid; grid-template-columns:220px 1fr; gap:16px; }.party-portraits { display:grid; gap:8px; }.portrait { height:130px; display:grid; place-items:center; border:1px solid #59618d; border-radius:14px; background:#343c70; }.chapter-tabs { display:flex; flex-wrap:wrap; gap:8px; }.stage-row { width:100%; display:flex; justify-content:space-between; align-items:center; margin-top:8px; background:#2b3263; }
+.formation-layout { grid-template-columns:1fr 1fr; }.party-slots, .character-list { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }.party-slots button, .character-list button { min-height:90px; display:flex; flex-direction:column; justify-content:center; }.row-actions { display:flex; gap:8px; }.secondary { background:#454d78; }
+.gacha-results { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }.gacha-results div { display:flex; flex-direction:column; border:1px solid #59618d; border-radius:10px; padding:12px; }
+.tutorial-overlay { position:fixed; z-index:50; inset:0; display:grid; place-items:center; padding:20px; background:rgba(5,8,24,.75); }.tutorial-card { max-width:460px; }
+.battle-layout { display:grid; gap:12px; }.battle-field { display:grid; grid-template-columns:1fr 1fr; gap:16px; }.battle-side { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }.battle-side h2 { grid-column:1/-1; }.unit-card { min-height:110px; display:flex; flex-direction:column; gap:5px; text-align:left; }.unit-card.enemy { background:#743f63; }.unit-card.selected { outline:3px solid #ffd77a; }.battle-controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; border:1px solid #59618d; border-radius:14px; padding:12px; }.battle-controls p { width:100%; }
+@media (max-width: 800px) { .two-column,.formation-layout,.gacha-layout,.weekend-layout,.home-grid,.story-layout,.battle-field { grid-template-columns:1fr; }.story-layout { grid-template-columns:1fr; }.party-portraits { grid-template-columns:repeat(4,1fr); }.portrait { height:80px; }.battle-side { grid-template-columns:repeat(2,1fr); }.status-bar span:last-child { display:none; }.main-content { padding:10px; } }
