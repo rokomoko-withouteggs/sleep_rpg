@@ -1,5 +1,3 @@
-import type { CharacterTemplate } from '../game/types';
-
 export interface GachaItem {
   itemId: string;
   name: string;
@@ -16,20 +14,27 @@ export interface GachaBanner {
 }
 
 export function rollGacha(banner: GachaBanner, random = Math.random): GachaItem[] {
-  const item = () => {
-    const roll = random() * 100;
-    let cumulative = 0;
-    let rarity: GachaItem['rarity'] = 'N';
-    for (const name of ['SSR', 'SR', 'R', 'N'] as const) {
-      cumulative += banner.rates[name];
-      if (roll < cumulative) { rarity = name; break; }
+  const totalRate = Object.values(banner.rates).reduce((sum, rate) => sum + rate, 0);
+  if (Math.abs(totalRate - 100) > 0.0001) {
+    throw new Error(`ガチャ排出率の合計は100である必要があります（現在: ${totalRate}）`);
+  }
+  if (banner.lineup.length === 0) throw new Error('ガチャに排出アイテムがありません');
+
+  const value = Math.min(Math.max(random(), 0), 0.999999999) * 100;
+  let cumulative = 0;
+  let rarity: GachaItem['rarity'] = 'N';
+  for (const candidate of ['SSR', 'SR', 'R', 'N'] as const) {
+    cumulative += banner.rates[candidate];
+    if (value < cumulative) {
+      rarity = candidate;
+      break;
     }
-    const pool = banner.lineup.filter((entry) => entry.rarity === rarity);
-    const fallback = pool[0] ?? banner.lineup[0];
-    if (!fallback) throw new Error('ガチャに排出アイテムがありません');
-    return fallback;
-  };
-  return Array.from({ length: 1 }, item);
+  }
+
+  const pool = banner.lineup.filter((item) => item.rarity === rarity);
+  const selectedPool = pool.length ? pool : banner.lineup;
+  const itemIndex = Math.min(Math.floor(random() * selectedPool.length), selectedPool.length - 1);
+  return [selectedPool[Math.max(0, itemIndex)]];
 }
 
 export function rollGacha10(banner: GachaBanner, random = Math.random): GachaItem[] {

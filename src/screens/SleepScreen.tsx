@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useGameStore } from '../store/gameStore';
-import { sleepRank, sleepReward, calculateSleepScore } from '../game/sleep';
+import { sleepRank, sleepReward, calculateSleepScore, calculateWeeklySleepScore } from '../game/sleep';
 
 export function SleepScreen() {
   const today = new Date().toISOString().slice(0, 10);
@@ -12,16 +12,19 @@ export function SleepScreen() {
   const [hours, setHours] = useState(existing?.hours ?? 7);
   const [bedtime, setBedtime] = useState(existing?.bedtime ?? '23:30');
   const [quality, setQuality] = useState(existing?.quality ?? 4);
-
   const bedtimes = useMemo(() => records.map((record) => record.bedtime), [records]);
   const record = { date, hours, bedtime, quality };
   const score = calculateSleepScore(record, bedtimes);
-  const rank = sleepRank(score);
+  const weeklyScore = calculateWeeklySleepScore(records);
+  const rank = sleepRank(weeklyScore);
 
   const submit = () => {
+    const alreadyRecorded = records.some((item) => item.date === date);
     saveSleep(record);
-    const reward = sleepReward(record);
-    addDreamStones(reward.stones);
+    if (!alreadyRecorded) {
+      const reward = sleepReward(record);
+      addDreamStones(reward.stones);
+    }
   };
 
   return (
@@ -32,7 +35,7 @@ export function SleepScreen() {
         <label>睡眠時間（時間）<input type="number" min="0" max="24" step="0.5" value={hours} onChange={(event) => setHours(Number(event.target.value))} /></label>
         <label>就寝時刻<input type="time" value={bedtime} onChange={(event) => setBedtime(event.target.value)} /></label>
         <fieldset><legend>睡眠の質</legend>{[1,2,3,4,5].map((star) => <label className="inline" key={star}><input type="radio" name="quality" checked={quality === star} onChange={() => setQuality(star)} />★{star}</label>)}</fieldset>
-        <div className="score-card"><strong>{rank}</strong><span>{score}点</span></div>
+        <div className="score-card"><strong>{rank}</strong><span>週間 {weeklyScore}点 / 今日 {score}点</span></div>
         <button onClick={submit}>保存して報酬を受け取る</button>
       </section>
       <section className="panel">

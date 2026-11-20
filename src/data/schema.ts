@@ -35,7 +35,7 @@ export const stageSchema = z.object({
   stamina: z.number(),
   enemies: z.array(z.object({ enemyId: z.string(), count: z.number().default(1) })).optional(),
   conversation: z.array(z.object({ speaker: z.string(), text: z.string(), assetKey: z.string().optional() })).optional(),
-  unlockPrevious: z.string().optional(),
+  unlockPrevious: z.string().nullable().optional(),
 });
 
 export const chapterSchema = z.object({
