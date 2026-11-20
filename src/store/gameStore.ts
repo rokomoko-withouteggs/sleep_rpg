@@ -9,7 +9,9 @@ interface GameState extends GameInventory {
   clearStage: (stageId: string) => void;
   setParty: (party: string[]) => void;
   spendStamina: (amount: number) => boolean;
+  refillStamina: () => void;
   addDreamStones: (amount: number) => void;
+  addTickets: (amount: number) => void;
   addGachaItem: (itemId: string) => void;
   completeTutorial: () => void;
   gainPlayerExp: (amount: number) => void;
@@ -40,13 +42,15 @@ export const useGameStore = create<GameState>()(
           ? state.clearedStages
           : [...state.clearedStages, stageId],
       })),
-      setParty: (party) => set({ party }),
+      setParty: (party) => set({ party: party.slice(0, 4) }),
       spendStamina: (amount) => {
-        if (get().stamina < amount) return false;
+        if (amount < 0 || get().stamina < amount) return false;
         set((state) => ({ stamina: state.stamina - amount }));
         return true;
       },
-      addDreamStones: (amount) => set((state) => ({ dreamStones: state.dreamStones + amount })),
+      refillStamina: () => set({ stamina: 100 }),
+      addDreamStones: (amount) => set((state) => ({ dreamStones: Math.max(0, state.dreamStones + amount) })),
+      addTickets: (amount) => set((state) => ({ tickets: Math.max(0, state.tickets + amount) })),
       addGachaItem: (itemId) => set((state) => ({ gachaItems: [...state.gachaItems, itemId] })),
       completeTutorial: () => set({ tutorialComplete: true }),
       gainPlayerExp: (amount) => set((state) => {
